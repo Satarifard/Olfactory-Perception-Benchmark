@@ -1,0 +1,176 @@
+question_ID,compound.name,SMILES,question_category,prompt.1,prompt.2,answer,Pleasantness_1,Pleasantness_2
+PLE-0001,S-methyl butanethioate | Vanillin,CCCC(=O)SC | COc1cc(C=O)ccc1O,Pleasantness,,,COc1cc(C=O)ccc1O | Vanillin,4.2916666667,85.553191489
+PLE-0002,Ethyl hexanoate | Isovaleric Acid,CCCCCC(=O)OCC | CC(C)CC(=O)O,Pleasantness,,,CCCCCC(=O)OCC | Ethyl hexanoate,79.1875,13.604166667
+PLE-0003,"Piperidine | Carvone, (-)-",C1CCNCC1 | C=C(C)[C@@H]1CC=C(C)C(=O)C1,Pleasantness,,,"C=C(C)[C@@H]1CC=C(C)C(=O)C1 | Carvone, (-)-",13.808510638,78.408163265
+PLE-0004,Ethyl 2-methylpentanoate | Isoamyl mercaptan,CCCC(C)C(=O)OCC | CC(C)CCS,Pleasantness,,,CCCC(C)C(=O)OCC | Ethyl 2-methylpentanoate,74.791666667,14.12244898
+PLE-0005,Vanillin acetate | 4-Pentenoic acid,CC(=O)O.COc1cc(C=O)ccc1O | C=CCCC(=O)O,Pleasantness,,,CC(=O)O.COc1cc(C=O)ccc1O | Vanillin acetate,73.760869565,14.142857143
+PLE-0006,Linalool | Benzyl Isothiocyanate,C=CC(C)(O)CCC=C(C)C | S=C=NCc1ccccc1,Pleasantness,,,C=CC(C)(O)CCC=C(C)C | Linalool,73.066666667,14.326530612
+PLE-0007,Hexanoic Acid | Pentadecalactone,CCCCCC(=O)O | O=C1CCCCCCCCCCCCCCO1,Pleasantness,,,O=C1CCCCCCCCCCCCCCO1 | Pentadecalactone,14.857142857,72.47826087
+PLE-0008,"Iodine | Bicyclo(3.1.1)hept-2-ene-2-ethanol, 6,6-dimethyl-, acetate",[I] | CC(=O)OCCC1=CCC2CC1C2(C)C,Pleasantness,,,"CC(=O)OCCC1=CCC2CC1C2(C)C | Bicyclo(3.1.1)hept-2-ene-2-ethanol, 6,6-dimethyl-, acetate",15.021276596,72.222222222
+PLE-0009,Ethyl valerate | Thioguaiacol,CCCCC(=O)OCC | COc1ccccc1S,Pleasantness,,,CCCCC(=O)OCC | Ethyl valerate,72.125,15.326530612
+PLE-0010,Cyclopentanethiol | Methyl Octanoate,SC1CCCC1 | CCCCCCCC(=O)OC,Pleasantness,,,CCCCCCCC(=O)OC | Methyl Octanoate,16.8125,72.025
+PLE-0011,"1,4-Dithiane-2,5-diol | 4-Methoxybenzyl acetate",OC1CSC(O)CS1 | COc1ccc(COC(C)=O)cc1,Pleasantness,,,COc1ccc(COC(C)=O)cc1 | 4-Methoxybenzyl acetate,17.734693878,71.604651163
+PLE-0012,Linoleic Acid | Diethyl Malonate,CCCCC/C=C\C/C=C\CCCCCCCC(=O)O | CCOC(=O)CC(=O)OCC,Pleasantness,,,CCOC(=O)CC(=O)OCC | Diethyl Malonate,18.234693878,71.510204082
+PLE-0013,Butanal | delta-Decalactone,CCCC=O | CCCCCC1CCCC(=O)O1,Pleasantness,,,CCCCCC1CCCC(=O)O1 | delta-Decalactone,18.270833333,70.166666667
+PLE-0014,Methyl (methylthio)acetate | 5-Butyl-4-methyldihydro-2(3H)-furanone,COC(=O)CSC | CCCCC1OC(=O)CC1C,Pleasantness,,,CCCCC1OC(=O)CC1C | 5-Butyl-4-methyldihydro-2(3H)-furanone,19.229166667,68.791666667
+PLE-0015,Ethyl 3-(furfurylthio)propionate | Tonalide,CCOC(=O)CCSCc1ccco1 | CC(=O)c1cc2c(cc1C)C(C)(C)C(C)CC2(C)C,Pleasantness,,,CC(=O)c1cc2c(cc1C)C(C)(C)C(C)CC2(C)C | Tonalide,19.354166667,68.782608696
+PLE-0016,Ethyl octanoate | Dimethyl trisulfide,CCCCCCCC(=O)OCC | CSSSC,Pleasantness,,,CCCCCCCC(=O)OCC | Ethyl octanoate,67.913043478,19.447916667
+PLE-0017,D-Ribofuranose | Difurfuryl sulfide,OC[C@H]1OC(O)[C@H](O)[C@@H]1O | c1coc(CSCc2ccco2)c1,Pleasantness,,,OC[C@H]1OC(O)[C@H](O)[C@@H]1O | D-Ribofuranose,67.836734694,19.8125
+PLE-0018,4-Ethoxybenzaldehyde | 2-Ethylhexanol,CCOc1ccc(C=O)cc1 | CCCCC(CC)CO,Pleasantness,,,CCOc1ccc(C=O)cc1 | 4-Ethoxybenzaldehyde,66.191489362,19.875
+PLE-0019,Diethyl disulfide | cis-3-Hexenyl propionate,CCSSCC | CC/C=C\CCOC(=O)CC,Pleasantness,,,CC/C=C\CCOC(=O)CC | cis-3-Hexenyl propionate,20.653061224,65.891304348
+PLE-0020,Hexyl acetate | Hexanal,CCCCCCOC(C)=O | CCCCCC=O,Pleasantness,,,CCCCCCOC(C)=O | Hexyl acetate,65.636363636,21.367346939
+PLE-0021,Isocaproic acid | Geranonitrile,CC(C)CCC(=O)O | CC(C)=CCC/C(C)=C/C#N,Pleasantness,,,CC(C)=CCC/C(C)=C/C#N | Geranonitrile,21.571428571,65.571428571
+PLE-0022,L-Leucine | Methyl Anthranilate,CC(C)C[C@H](N)C(=O)O | COC(=O)c1ccccc1N,Pleasantness,,,COC(=O)c1ccccc1N | Methyl Anthranilate,22.104166667,65.416666667
+PLE-0023,Furfuryl mercaptan formate | cis-3-HEXENYL ACETATE,O=CO.SCc1ccco1 | CC/C=C\CCOC(C)=O,Pleasantness,,,CC/C=C\CCOC(C)=O | cis-3-HEXENYL ACETATE,22.166666667,65.0
+PLE-0024,Tributyrin | Gamma-Decalactone,CCCC(=O)OCC(COC(=O)CCC)OC(=O)CCC | CCCCCCC1CCC(=O)O1,Pleasantness,,,CCCCCCC1CCC(=O)O1 | Gamma-Decalactone,22.804347826,64.979166667
+PLE-0025,Eugenyl Acetate | Phenethyl Isothiocyanate,C=CCc1ccc(OC(C)=O)c(OC)c1 | S=C=NCCc1ccccc1,Pleasantness,,,C=CCc1ccc(OC(C)=O)c(OC)c1 | Eugenyl Acetate,64.673913043,23.224489796
+PLE-0026,2-Ethoxythiazole | Dihydrocoumarin,CCOc1nccs1 | O=C1CCc2ccccc2O1,Pleasantness,,,O=C1CCc2ccccc2O1 | Dihydrocoumarin,23.791666667,64.0
+PLE-0027,Benzyl acetate | 3-(Methylthio)-1-propanol,CC(=O)OCc1ccccc1 | CSCCCO,Pleasantness,,,CC(=O)OCc1ccccc1 | Benzyl acetate,62.288888889,23.93877551
+PLE-0028,2-(1-Methylpropyl)thiazole | Benzaldehyde,CCC(C)c1nccs1 | O=Cc1ccccc1,Pleasantness,,,O=Cc1ccccc1 | Benzaldehyde,23.93877551,61.87755102
+PLE-0029,Nerol | 1-Hepten-3-OL,CC(C)=CCC/C(C)=C\CO | C=CC(O)CCCC,Pleasantness,,,CC(C)=CCC/C(C)=C\CO | Nerol,61.869565217,23.958333333
+PLE-0030,"2,4-Dithiapentane | Anethole",CSCSC | CC=Cc1ccc(OC)cc1,Pleasantness,,,CC=Cc1ccc(OC)cc1 | Anethole,24.163265306,61.266666667
+PLE-0031,Allyl butyrate | Diethyl Succinate,C=CCOC(=O)CCC | CCOC(=O)CCC(=O)OCC,Pleasantness,,,CCOC(=O)CCC(=O)OCC | Diethyl Succinate,24.224489796,61.063829787
+PLE-0032,"1,8-Cineole | Methional",CC12CCC(CC1)C(C)(C)O2 | CSCCC=O,Pleasantness,,,"CC12CCC(CC1)C(C)(C)O2 | 1,8-Cineole",61.0,24.340425532
+PLE-0033,Dimethyl Sulfone | 2-Thiocresol,CS(C)(=O)=O | Cc1ccccc1S,Pleasantness,,,CS(C)(=O)=O | Dimethyl Sulfone,60.764705882,24.456521739
+PLE-0034,2-Methyl-3-(methylthio)furan | Ethyl 3-methyl-3-phenylglycidate,CSc1ccoc1C | CCOC(=O)C1OC1(C)c1ccccc1,Pleasantness,,,CCOC(=O)C1OC1(C)c1ccccc1 | Ethyl 3-methyl-3-phenylglycidate,24.47826087,60.606060606
+PLE-0035,"Sotolone | 1,6-Hexanedithiol",CC1=C(O)C(=O)OC1C | SCCCCCCS,Pleasantness,,,CC1=C(O)C(=O)OC1C | Sotolone,60.604166667,24.520833333
+PLE-0036,Pentanoic Acid | 5-Methylfurfural,CCCCC(=O)O | Cc1ccc(C=O)o1,Pleasantness,,,Cc1ccc(C=O)o1 | 5-Methylfurfural,24.815789474,60.421052632
+PLE-0037,delta-UNDECALACTONE | 2-Acetyl-3-ethylpyrazine,CCCCCCC1CCCC(=O)O1 | CCc1nccnc1C(C)=O,Pleasantness,,,CCCCCCC1CCCC(=O)O1 | delta-UNDECALACTONE,60.395833333,24.836734694
+PLE-0038,L-Menthyl acetate | Isobutyric Acid,CC(=O)O[C@@H]1C[C@H](C)CC[C@H]1C(C)C | CC(C)C(=O)O,Pleasantness,,,CC(=O)O[C@@H]1C[C@H](C)CC[C@H]1C(C)C | L-Menthyl acetate,60.217391304,24.925
+PLE-0039,1-Pentanol | 4-Methoxybenzaldehyde,CCCCCO | COc1ccc(C=O)cc1,Pleasantness,,,COc1ccc(C=O)cc1 | 4-Methoxybenzaldehyde,25.114285714,60.191489362
+PLE-0040,1-Hexanol | Ethyl sulfide,CCCCCCO | CCSCC,Pleasantness,,,CCCCCCO | 1-Hexanol,60.15,25.186046512
+PLE-0041,"2,5-dimethyl-4-methoxy-3(2H)-furanone | Ethyl butyrate",COC1=C(C)OC(C)C1=O | CCCC(=O)OCC,Pleasantness,,,CCCC(=O)OCC | Ethyl butyrate,25.5625,60.12244898
+PLE-0042,Methyl Acetate | Methylumbelliferone,COC(C)=O | COc1ccc2ccc(=O)oc2c1,Pleasantness,,,COc1ccc2ccc(=O)oc2c1 | Methylumbelliferone,25.844444444,59.875
+PLE-0043,Thiophenol | GlyTouCan:G23138CM,Sc1ccccc1 | CCC1OC(=O)C(O)=C1C,Pleasantness,,,CCC1OC(=O)C(O)=C1C | GlyTouCan:G23138CM,26.088235294,59.815384615
+PLE-0044,Butanedione | Methyl Salicylate,CC(=O)C(C)=O | COC(=O)c1ccccc1O,Pleasantness,,,COC(=O)c1ccccc1O | Methyl Salicylate,26.270833333,59.714285714
+PLE-0045,Allyl cyclohexanepropionate | Octanoic Acid,C=CCOC(=O)CCC1CCCCC1 | CCCCCCCC(=O)O,Pleasantness,,,C=CCOC(=O)CCC1CCCCC1 | Allyl cyclohexanepropionate,59.446808511,26.697674419
+PLE-0046,"3-Acetyl-2,5-dimethylthiophene | Geraniol",CC(=O)c1cc(C)sc1C | CC(C)=CCC/C(C)=C/CO,Pleasantness,,,CC(C)=CCC/C(C)=C/CO | Geraniol,26.87755102,59.125
+PLE-0047,L-Proline | Ethyl benzoate,O=C(O)[C@@H]1CCCN1 | CCOC(=O)c1ccccc1,Pleasantness,,,CCOC(=O)c1ccccc1 | Ethyl benzoate,26.87755102,58.8
+PLE-0048,"Methyl hexanoate | 3,7,11,15-Tetramethyl-2-hexadecen-1-OL",CCCCCC(=O)OC | CC(=CCO)CCCC(C)CCCC(C)CCCC(C)C,Pleasantness,,,CCCCCC(=O)OC | Methyl hexanoate,58.520833333,27.395833333
+PLE-0049,Phenethylamine | Phenethyl salicylate,NCCc1ccccc1 | O=C(OCCc1ccccc1)c1ccccc1O,Pleasantness,,,O=C(OCCc1ccccc1)c1ccccc1O | Phenethyl salicylate,28.425531915,58.485714286
+PLE-0050,Isosafrole | Sorbitol,CC=Cc1ccc2c(c1)OCO2 | OC[C@@H](O)[C@@H](O)[C@H](O)[C@@H](O)CO,Pleasantness,,,CC=Cc1ccc2c(c1)OCO2 | Isosafrole,58.25,28.553191489
+PLE-0051,1-Furfurylpyrrole | 2-Methoxynaphthalene,c1coc(Cn2cccc2)c1 | COc1ccc2ccccc2c1,Pleasantness,,,COc1ccc2ccccc2c1 | 2-Methoxynaphthalene,28.744680851,57.916666667
+PLE-0052,Musk ambrette | 3-(5-Methyl-2-furyl)butanal,COc1c(C(C)(C)C)cc([N+](=O)[O-])c(C)c1[N+](=O)[O-] | Cc1ccc(C(C)CC=O)o1,Pleasantness,,,COc1c(C(C)(C)C)cc([N+](=O)[O-])c(C)c1[N+](=O)[O-] | Musk ambrette,57.818181818,28.857142857
+PLE-0053,"Butanoic acid, 3-methyl-, 5-methyl-2-(1-methylethyl)cyclohexyl ester | 2,6-Lutidine",CC(C)CC(=O)OC1CC(C)CCC1C(C)C | Cc1cccc(C)n1,Pleasantness,,,"CC(C)CC(=O)OC1CC(C)CCC1C(C)C | Butanoic acid, 3-methyl-, 5-methyl-2-(1-methylethyl)cyclohexyl ester",57.631578947,29.0
+PLE-0054,Methylisoeugenol | Tetramethylpyrazine,CC=Cc1cc(C)c(O)c(OC)c1 | Cc1nc(C)c(C)nc1C,Pleasantness,,,CC=Cc1cc(C)c(O)c(OC)c1 | Methylisoeugenol,57.583333333,29.102040816
+PLE-0055,"Androsta-4,16-dien-3-one | Benzyl Salicylate",C[C@@]12C=CC[C@H]1[C@@H]1CCC3=CC(=O)CC[C@]3(C)[C@H]1CC2 | O=C(OCc1ccccc1)c1ccccc1O,Pleasantness,,,O=C(OCc1ccccc1)c1ccccc1O | Benzyl Salicylate,29.157894737,57.454545455
+PLE-0056,Decanoic Acid | 2'-Aminoacetophenone,CCCCCCCCCC(=O)O | CC(=O)c1ccccc1N,Pleasantness,,,CC(=O)c1ccccc1N | 2'-Aminoacetophenone,29.166666667,57.346938776
+PLE-0057,"Isobutyl propionate | 4-Heptenal, (4Z)-",CCC(=O)OCC(C)C | CC/C=C\CCC=O,Pleasantness,,,CCC(=O)OCC(C)C | Isobutyl propionate,57.186046512,29.195652174
+PLE-0058,Carvyl acetate | (+)-Menthol,C=C(C)C1CC=C(C)C(OC(C)=O)C1 | CC(C)[C@H]1CC[C@H](C)C[C@@H]1O,Pleasantness,,,CC(C)[C@H]1CC[C@H](C)C[C@@H]1O | (+)-Menthol,29.208333333,56.87755102
+PLE-0059,"5,6,7,8-Tetrahydroquinoxaline | 2-Isopropylphenol",c1cnc2c(n1)CCCC2 | CC(C)c1ccccc1O,Pleasantness,,,"c1cnc2c(n1)CCCC2 | 5,6,7,8-Tetrahydroquinoxaline",56.166666667,29.25
+PLE-0060,Lauric Acid | Amyl butyrate,CCCCCCCCCCCC(=O)O | CCCCCOC(=O)CCC,Pleasantness,,,CCCCCOC(=O)CCC | Amyl butyrate,29.445652174,56.088888889
+PLE-0061,"1,4-Dimethoxybenzene | 2'-Hydroxyacetophenone",COc1ccc(OC)cc1 | CC(=O)c1ccccc1O,Pleasantness,,,"COc1ccc(OC)cc1 | 1,4-Dimethoxybenzene",56.083333333,29.469387755
+PLE-0062,Methyleugenol | Salicylaldehyde,C=CCc1cc(C)c(O)c(OC)c1 | O=Cc1ccccc1O,Pleasantness,,,C=CCc1cc(C)c(O)c(OC)c1 | Methyleugenol,55.235294118,29.659574468
+PLE-0063,Anisole | Geranyl Acetate,COc1ccccc1 | CC(=O)OC/C=C(\C)CCC=C(C)C,Pleasantness,,,CC(=O)OC/C=C(\C)CCC=C(C)C | Geranyl Acetate,29.75,54.884615385
+PLE-0064,Benzyl phenylacetate | (-)-Isopulegol,O=C(Cc1ccccc1)OCc1ccccc1 | C=C(C)[C@@H]1CC[C@@H](C)C[C@H]1O,Pleasantness,,,C=C(C)[C@@H]1CC[C@@H](C)C[C@H]1O | (-)-Isopulegol,30.12195122,54.673469388
+PLE-0065,Ethyl undecanoate | 2-Ethylhexanoic Acid,CCCCCCCCCCC(=O)OCC | CCCCC(CC)C(=O)O,Pleasantness,,,CCCCCCCCCCC(=O)OCC | Ethyl undecanoate,54.659574468,30.155555556
+PLE-0066,2-Ethylphenol | Octane,CCc1ccccc1O | CCCCCCCC,Pleasantness,,,CCCCCCCC | Octane,30.265306122,54.617021277
+PLE-0067,Phenethyl Benzoate | Thiophene,O=C(OCCc1ccccc1)c1ccccc1 | c1ccsc1,Pleasantness,,,O=C(OCCc1ccccc1)c1ccccc1 | Phenethyl Benzoate,54.605263158,30.382352941
+PLE-0068,Methyl butyrate | 1-Phenyl-1-propanol,CCCC(=O)OC | CCC(O)c1ccccc1,Pleasantness,,,CCC(O)c1ccccc1 | 1-Phenyl-1-propanol,30.391304348,54.583333333
+PLE-0069,2-Phenylethyl propionate | Tyramine,CCC(=O)OCCc1ccccc1 | NCCc1ccc(O)cc1,Pleasantness,,,CCC(=O)OCCc1ccccc1 | 2-Phenylethyl propionate,54.575,30.825
+PLE-0070,L-Alanine | 4-Methyl-5-(2-hydroxyethyl)thiazole,C[C@H](N)C(=O)O | Cc1ncsc1CCO,Pleasantness,,,C[C@H](N)C(=O)O | L-Alanine,54.448275862,30.854166667
+PLE-0071,Iodoform | Butyl Acetate,IC(I)I | CCCCOC(C)=O,Pleasantness,,,CCCCOC(C)=O | Butyl Acetate,31.530612245,54.416666667
+PLE-0072,3-Methoxybenzaldehyde | 2-Isobutyl-3-methoxypyrazine,COc1cccc(C=O)c1 | COc1nccnc1CC(C)C,Pleasantness,,,COc1cccc(C=O)c1 | 3-Methoxybenzaldehyde,54.217391304,31.571428571
+PLE-0073,"1,3-Diphenyl-2-propanone | Butyl propionate",O=C(Cc1ccccc1)Cc1ccccc1 | CCCCOC(=O)CC,Pleasantness,,,CCCCOC(=O)CC | Butyl propionate,32.020833333,53.826086957
+PLE-0074,Cinnamic Acid | Cuminol,O=C(O)C=Cc1ccccc1 | CC(C)c1ccc(CO)cc1,Pleasantness,,,O=C(O)C=Cc1ccccc1 | Cinnamic Acid,53.816326531,32.363636364
+PLE-0075,Biphenyl | Hexyl propionate,c1ccc(-c2ccccc2)cc1 | CCCCCCOC(=O)CC,Pleasantness,,,CCCCCCOC(=O)CC | Hexyl propionate,32.428571429,53.733333333
+PLE-0076,"2-Acetyl-3,5-dimethylpyrazine | Allyl Cinnamate",CC(=O)c1ncc(C)nc1C | C=CCOC(=O)C=Cc1ccccc1,Pleasantness,,,C=CCOC(=O)C=Cc1ccccc1 | Allyl Cinnamate,32.489795918,53.425
+PLE-0077,Allyl phenylacetate | Butylamine,C=CCOC(=O)Cc1ccccc1 | CCCCN,Pleasantness,,,CCCCN | Butylamine,32.56,53.380952381
+PLE-0078,"3-Acetyl-2,5-dimethylfuran | 2-Phenylethyl Acetate",CC(=O)c1cc(C)oc1C | CC(=O)OCCc1ccccc1,Pleasantness,,,CC(=O)OCCc1ccccc1 | 2-Phenylethyl Acetate,32.586956522,53.265306122
+PLE-0079,3-Acetylpyridine | Adipic Acid,CC(=O)c1cccnc1 | O=C(O)CCCCC(=O)O,Pleasantness,,,O=C(O)CCCCC(=O)O | Adipic Acid,32.632653061,53.21875
+PLE-0080,Allyl anthranilate | L-Aspartic Acid,C=CCOC(=O)c1ccccc1N | N[C@@H](CC(=O)O)C(=O)O,Pleasantness,,,C=CCOC(=O)c1ccccc1N | Allyl anthranilate,53.065217391,32.744680851
+PLE-0081,Allyl furoate | Citric Acid,C=CCOC(=O)c1ccco1 | O=C(O)CC(O)(CC(=O)O)C(=O)O,Pleasantness,,,O=C(O)CC(O)(CC(=O)O)C(=O)O | Citric Acid,32.787234043,53.038461538
+PLE-0082,Hexyl Octanoate | Isoamyl Laurate,CCCCCCCC(=O)OCCCCCC | CCCCCCCCCCCC(=O)OCCC(C)C,Pleasantness,,,CCCCCCCC(=O)OCCCCCC | Hexyl Octanoate,52.846153846,32.909090909
+PLE-0083,Undecane | 2-Octanone,CCCCCCCCCCC | CCCCCCC(C)=O,Pleasantness,,,CCCCCCC(C)=O | 2-Octanone,33.0,52.645833333
+PLE-0084,P-Cresol | 2-Acetylnaphthalene,Cc1ccc(O)cc1 | CC(=O)c1ccc2ccccc2c1,Pleasantness,,,CC(=O)c1ccc2ccccc2c1 | 2-Acetylnaphthalene,33.083333333,52.346938776
+PLE-0085,I2-Ionone | 2-Ethyl-3-Methylpyrazine,CC(=O)/C=C/C1=C(C)CCCC1(C)C | CCc1nccnc1C,Pleasantness,,,CC(=O)/C=C/C1=C(C)CCCC1(C)C | I2-Ionone,52.177777778,33.104166667
+PLE-0086,Acetophenone | Succinic Acid,CC(=O)c1ccccc1 | O=C(O)CCC(=O)O,Pleasantness,,,CC(=O)c1ccccc1 | Acetophenone,52.12244898,33.41025641
+PLE-0087,2-Methyl-1-butanol | Isoamyl butyrate,CCC(C)CO | CCCC(=O)OCCC(C)C,Pleasantness,,,CCCC(=O)OCCC(C)C | Isoamyl butyrate,33.435294118,51.822222222
+PLE-0088,"2,3-Diethylpyrazine | 2,6-Di-tert-butyl-4-methylphenol",CCc1nccnc1CC | Cc1cc(C(C)(C)C)c(O)c(C(C)(C)C)c1,Pleasantness,,,"Cc1cc(C(C)(C)C)c(O)c(C(C)(C)C)c1 | 2,6-Di-tert-butyl-4-methylphenol",33.468085106,51.675675676
+PLE-0089,"Isoamyl Alcohol | 2,4,5-Trimethylthiazole",CC(C)CCO | Cc1nc(C)c(C)s1,Pleasantness,,,CC(C)CCO | Isoamyl Alcohol,51.577777778,33.479166667
+PLE-0090,Beta-Alanine | 2-Ethylfuran,NCCC(=O)O | CCc1ccco1,Pleasantness,,,NCCC(=O)O | Beta-Alanine,51.351351351,33.487179487
+PLE-0091,2-Phenylethanol | Ethyl 2-furoate,OCCc1ccccc1 | CCOC(=O)c1ccco1,Pleasantness,,,OCCc1ccccc1 | 2-Phenylethanol,51.346938776,33.979166667
+PLE-0092,"Triacetin | Butyl lactate, (S)-",CC(=O)OCC(COC(C)=O)OC(C)=O | CCCCOC(=O)[C@H](C)O,Pleasantness,,,"CCCCOC(=O)[C@H](C)O | Butyl lactate, (S)-",34.12195122,51.19047619
+PLE-0093,Hexyl benzoate | 6-Undecanone,CCCCCCOC(=O)c1ccccc1 | CCCCCC(=O)CCCCC,Pleasantness,,,CCCCCC(=O)CCCCC | 6-Undecanone,34.164948454,51.153846154
+PLE-0094,2-Methylfuran | 2-(Methylthio)ethanol,Cc1ccco1 | CSCCO,Pleasantness,,,Cc1ccco1 | 2-Methylfuran,51.125,34.479166667
+PLE-0095,(+)-2-Butanol | 3-Phenylpropyl propanoate,CC[C@H](C)O | CCC(=O)OCCCc1ccccc1,Pleasantness,,,CC[C@H](C)O | (+)-2-Butanol,51.0,34.595238095
+PLE-0096,3-Hexanol | Methyl 2-nonenoate,CCCC(O)CC | CCCCCCC=CC(=O)OC,Pleasantness,,,CCCCCCC=CC(=O)OC | Methyl 2-nonenoate,34.769230769,50.853658537
+PLE-0097,2-Acetyl-5-Methylfuran | Piperonyl isobutyrate,CC(=O)c1ccc(C)o1 | CC(C)C(=O)OCc1ccc2c(c1)OCO2,Pleasantness,,,CC(C)C(=O)OCc1ccc2c(c1)OCO2 | Piperonyl isobutyrate,34.958333333,50.8
+PLE-0098,Dimethyl Sulfide | 1-Octanol,CSC | CCCCCCCCO,Pleasantness,,,CCCCCCCCO | 1-Octanol,35.044444444,50.75
+PLE-0099,Diphenyl Ether | Benzaldehyde dimethyl acetal,c1ccc(Oc2ccccc2)cc1 | COC(OC)c1ccccc1,Pleasantness,,,c1ccc(Oc2ccccc2)cc1 | Diphenyl Ether,50.723404255,35.270833333
+PLE-0100,Hexyl butyrate | Allyl 2-ethylbutyrate,CCCCCCOC(=O)CCC | C=CCOC(=O)C(CC)CC,Pleasantness,,,C=CCOC(=O)C(CC)CC | Allyl 2-ethylbutyrate,35.348837209,50.555555556
+PLE-0101,Butyl 10-undecenoate | Benzene,C=CCCCCCCCCC(=O)OCCCC | c1ccccc1,Pleasantness,,,c1ccccc1 | Benzene,35.361702128,50.52173913
+PLE-0102,1-Nonanol | Cuminaldehyde,CCCCCCCCCO | CC(C)c1ccc(C=O)cc1,Pleasantness,,,CC(C)c1ccc(C=O)cc1 | Cuminaldehyde,35.369565217,50.465116279
+PLE-0103,2-Decanone | 3-Pentanol,CCCCCCCCC(C)=O | CCC(O)CC,Pleasantness,,,CCCCCCCCC(C)=O | 2-Decanone,50.395348837,35.425531915
+PLE-0104,1-Octen-3-yl acetate | 2-Methylvaleric acid,C=CC(CCCCC)OC(C)=O | CCCC(C)C(=O)O,Pleasantness,,,CCCC(C)C(=O)O | 2-Methylvaleric acid,35.863636364,50.322580645
+PLE-0105,4-Methyl-5-thiazoleethanol acetate | Heptanol,CC(=O)OCCc1scnc1C | CCCCCCCO,Pleasantness,,,CCCCCCCO | Heptanol,36.0,50.308510638
+PLE-0106,4-Methylcyclohexanone | 3-Methylbutyl octanoate,CC1CCC(=O)CC1 | CCCCCCCC(=O)OCCC(C)C,Pleasantness,,,CCCCCCCC(=O)OCCC(C)C | 3-Methylbutyl octanoate,36.045454545,50.276595745
+PLE-0107,Butyl butyrate | Carvacrol,CCCCOC(=O)CCC | Cc1ccc(C(C)C)cc1O,Pleasantness,,,Cc1ccc(C(C)C)cc1O | Carvacrol,36.224489796,50.102040816
+PLE-0108,"4-Heptanone | 2-Nonen-1-ol, (2Z)-",CCCC(=O)CCC | CCCCCC/C=C\CO,Pleasantness,,,CCCC(=O)CCC | 4-Heptanone,50.06122449,36.3125
+PLE-0109,"2-Phenylbutenal | 1,3-Dimethoxybenzene",CC=C(C=O)c1ccccc1 | COc1cccc(OC)c1,Pleasantness,,,"COc1cccc(OC)c1 | 1,3-Dimethoxybenzene",36.548387097,50.0
+PLE-0110,"3-Methyl-1,2-cyclopentanedione | Gamma-Valerolactone",CC1CCC(=O)C1=O | CC1CCC(=O)O1,Pleasantness,,,CC1CCC(=O)O1 | Gamma-Valerolactone,36.551020408,49.967741935
+PLE-0111,D-Camphor | Isobutanol,CC1(C)[C@@H]2CC[C@@]1(C)C(=O)C2 | CC(C)CO,Pleasantness,,,CC1(C)[C@@H]2CC[C@@]1(C)C(=O)C2 | D-Camphor,49.87755102,36.566666667
+PLE-0112,Nonyl Acetate | 2-Acetylpyridine,CCCCCCCCCOC(C)=O | CC(=O)c1ccccn1,Pleasantness,,,CC(=O)c1ccccn1 | 2-Acetylpyridine,36.591836735,49.775510204
+PLE-0113,5-Hexen-1-ol | Diallyl Sulfide,C=CCCCCO | C=CCSCC=C,Pleasantness,,,C=CCCCCO | 5-Hexen-1-ol,49.682926829,36.612903226
+PLE-0114,3-Octanone | 6-Methylquinoline,CCCCCC(=O)CC | Cc1ccc2ncccc2c1,Pleasantness,,,CCCCCC(=O)CC | 3-Octanone,49.680851064,36.744680851
+PLE-0115,Methyl 2-furoate | (-)-beta-Pinene,COC(=O)c1ccco1 | C=C1CC[C@H]2C[C@@H]1C2(C)C,Pleasantness,,,C=C1CC[C@H]2C[C@@H]1C2(C)C | (-)-beta-Pinene,36.829787234,49.591836735
+PLE-0116,Pyridine | P-Cymene,c1ccncc1 | Cc1ccc(C(C)C)cc1,Pleasantness,,,c1ccncc1 | Pyridine,49.545454545,37.0
+PLE-0117,Butylated Hydroxyanisole | Decanal dimethyl acetal,COc1ccc(O)c(C(C)(C)C)c1 | CCCCCCCCCC(OC)OC,Pleasantness,,,CCCCCCCCCC(OC)OC | Decanal dimethyl acetal,37.0,49.5
+PLE-0118,4-(4'-Hydroxyphenyl)-2-butanone | Ethylbenzene,CC(=O)CCc1ccc(O)cc1 | CCc1ccccc1,Pleasantness,,,CC(=O)CCc1ccc(O)cc1 | 4-(4'-Hydroxyphenyl)-2-butanone,49.357142857,37.081632653
+PLE-0119,Undecanal | 4-Methylphenyl acetate,CCCCCCCCCCC=O | CC(=O)Oc1ccc(C)cc1,Pleasantness,,,CC(=O)Oc1ccc(C)cc1 | 4-Methylphenyl acetate,37.090909091,49.0
+PLE-0120,4-Hydroxybenzaldehyde | 1-Dodecanol,O=Cc1ccc(O)cc1 | CCCCCCCCCCCCO,Pleasantness,,,O=Cc1ccc(O)cc1 | 4-Hydroxybenzaldehyde,48.956521739,37.238095238
+PLE-0121,Pentyl octanoate | Isoamylamine,CCCCCCCC(=O)OCCCCC | CC(C)CCN,Pleasantness,,,CCCCCCCC(=O)OCCCCC | Pentyl octanoate,48.92,37.242424242
+PLE-0122,Isobutyl Benzoate | 4-Propylphenol,CC(C)COC(=O)c1ccccc1 | CCCc1ccc(O)cc1,Pleasantness,,,CC(C)COC(=O)c1ccccc1 | Isobutyl Benzoate,48.916666667,37.361702128
+PLE-0123,L-Valine | Ethyl 3-hydroxyhexanoate,CC(C)[C@H](N)C(=O)O | CCCC(O)CC(=O)OCC,Pleasantness,,,CCCC(O)CC(=O)OCC | Ethyl 3-hydroxyhexanoate,37.394736842,48.734693878
+PLE-0124,"Fumaric Acid | 4-Decenol, (4Z)-",O=C(O)/C=C/C(=O)O | CCCCC/C=C\CCCO,Pleasantness,,,"CCCCC/C=C\CCCO | 4-Decenol, (4Z)-",37.428571429,48.638297872
+PLE-0125,2-Methoxybenzaldehyde | Isopropenyl acetate,COc1ccccc1C=O | C=C(C)OC(C)=O,Pleasantness,,,C=C(C)OC(C)=O | Isopropenyl acetate,37.673684211,48.62962963
+PLE-0126,Isoamyl Cinnamate | Acetic Acid,CC(C)CCOC(=O)C=Cc1ccccc1 | CC(=O)O,Pleasantness,,,CC(=O)O | Acetic Acid,38.125,48.461538462
+PLE-0127,"Benzyl Benzoate | 2-Ethyl-1,3,3-trimethylbicyclo(2.2.1)heptan-2-ol",O=C(OCc1ccccc1)c1ccccc1 | CCC1(O)C2(C)CCC(C2)C1(C)C,Pleasantness,,,O=C(OCc1ccccc1)c1ccccc1 | Benzyl Benzoate,48.266666667,38.413043478
+PLE-0128,Cycloheptanone | 6-Methyl-5-hepten-2-one,O=C1CCCCCC1 | CC(=O)CCC=C(C)C,Pleasantness,,,CC(=O)CCC=C(C)C | 6-Methyl-5-hepten-2-one,38.577777778,48.1875
+PLE-0129,"2,3-Dihydroxybutanedioic Acid | 2,5-Dimethylpyrazine",O=C(O)C(O)C(O)C(=O)O | Cc1cnc(C)cn1,Pleasantness,,,"O=C(O)C(O)C(O)C(=O)O | 2,3-Dihydroxybutanedioic Acid",47.970588235,38.710526316
+PLE-0130,L-Glutamine | Guaiacol,NC(=O)CC[C@H](N)C(=O)O | COc1ccccc1O,Pleasantness,,,NC(=O)CC[C@H](N)C(=O)O | L-Glutamine,47.947368421,38.817204301
+PLE-0131,"3-Octanol | Linalool, oxide",CCCCCC(O)CC | CC(C)=CCCC(C)(O)C1CO1,Pleasantness,,,"CC(C)=CCCC(C)(O)C1CO1 | Linalool, oxide",38.979591837,47.85
+PLE-0132,Diethyl malate | Benzenepropanol,CCOC(=O)CC(O)C(=O)OCC | OCCCc1ccccc1,Pleasantness,,,OCCCc1ccccc1 | Benzenepropanol,39.0,47.292682927
+PLE-0133,Propyl propionate | 2-Ethylpyrazine,CCCOC(=O)CC | CCc1cnccn1,Pleasantness,,,CCCOC(=O)CC | Propyl propionate,47.234042553,39.102040816
+PLE-0134,"Ethyl Propionate | Acetic acid 1,7,7-trimethyl-bicyclo(2.2.1)hept-2-yl ester",CCOC(=O)CC | CC(=O)OC1CC2CCC1(C)C2(C)C,Pleasantness,,,"CC(=O)OC1CC2CCC1(C)C2(C)C | Acetic acid 1,7,7-trimethyl-bicyclo(2.2.1)hept-2-yl ester",39.104166667,46.780487805
+PLE-0135,Methanol | Cinnamyl Alcohol,CO | OCC=Cc1ccccc1,Pleasantness,,,OCC=Cc1ccccc1 | Cinnamyl Alcohol,39.137931034,46.729166667
+PLE-0136,5-Methylquinoxaline | 2-Methoxy-4-Methylphenol,Cc1cccc2nccnc12 | COc1cc(C)ccc1O,Pleasantness,,,Cc1cccc2nccnc12 | 5-Methylquinoxaline,46.714285714,39.184782609
+PLE-0137,2-Acetylthiophene | Propionic Acid,CC(=O)c1cccs1 | CCC(=O)O,Pleasantness,,,CC(=O)c1cccs1 | 2-Acetylthiophene,46.666666667,39.222222222
+PLE-0138,Myrtenal | Benzyl Alcohol,CC1(C)C2CC=C(C=O)C1C2 | OCc1ccccc1,Pleasantness,,,OCc1ccccc1 | Benzyl Alcohol,39.238095238,46.583333333
+PLE-0139,Furfuryl Alcohol | 4-Methylanisole,OCc1ccco1 | COc1ccc(C)cc1,Pleasantness,,,COc1ccc(C)cc1 | 4-Methylanisole,39.444444444,46.489361702
+PLE-0140,1-Octene | Isopropyl Myristate,C=CCCCCCC | CCCCCCCCCCCCCC(=O)OC(C)C,Pleasantness,,,CCCCCCCCCCCCCC(=O)OC(C)C | Isopropyl Myristate,39.472222222,46.185185185
+PLE-0141,Benzaldehyde propylene glycol acetal | L-Phenylalanine,CC1COC(c2ccccc2)O1 | N[C@@H](Cc1ccccc1)C(=O)O,Pleasantness,,,CC1COC(c2ccccc2)O1 | Benzaldehyde propylene glycol acetal,46.025641026,39.516129032
+PLE-0142,Ketoisophorone | Methyl Nicotinate,CC1=CC(=O)CC(C)(C)C1=O | COC(=O)c1cccnc1,Pleasantness,,,CC1=CC(=O)CC(C)(C)C1=O | Ketoisophorone,45.930232558,39.574468085
+PLE-0143,Butyl Formate | Sorbyl acetate,CCCCOC=O | C/C=C/C=C/COC(C)=O,Pleasantness,,,CCCCOC=O | Butyl Formate,45.857142857,39.653846154
+PLE-0144,"Dihydrojasmone | cis-2-Methyl-4-propyl-1,3-oxathiane",CCCCCC1=C(C)CCC1=O | CCC[C@H]1CCO[C@@H](C)S1,Pleasantness,,,CCCCCC1=C(C)CCC1=O | Dihydrojasmone,45.85106383,39.760869565
+PLE-0145,Acetovanillone | Tetrahydrofurfuryl alcohol,COc1cc(C(C)=O)ccc1O | OCC1CCCO1,Pleasantness,,,COc1cc(C(C)=O)ccc1O | Acetovanillone,45.829787234,39.833333333
+PLE-0146,"1-Decanol | alpha-Pinene, (+)-",CCCCCCCCCCO | CC1=CC[C@@H]2C[C@H]1C2(C)C,Pleasantness,,,"CC1=CC[C@@H]2C[C@H]1C2(C)C | alpha-Pinene, (+)-",39.85106383,45.6
+PLE-0147,Methyl Methacrylate | Ethyl stearate,C=C(C)C(=O)OC | CCCCCCCCCCCCCCCCCC(=O)OCC,Pleasantness,,,CCCCCCCCCCCCCCCCCC(=O)OCC | Ethyl stearate,40.175,45.578947368
+PLE-0148,Pyrazineethanethiol | 2-Hexanone,SCCc1cnccn1 | CCCCC(C)=O,Pleasantness,,,SCCc1cnccn1 | Pyrazineethanethiol,45.571428571,40.1875
+PLE-0149,Methyl Benzoate | 4-Methylquinoline,COC(=O)c1ccccc1 | Cc1ccnc2ccccc12,Pleasantness,,,COC(=O)c1ccccc1 | Methyl Benzoate,45.47826087,40.366666667
+PLE-0150,Acetaldehyde | Tetrahydrofurfuryl acetate,CC=O | CC(=O)OCC1CCCO1,Pleasantness,,,CC=O | Acetaldehyde,45.315789474,40.533333333
+PLE-0151,1-Octen-3-Ol | L-Tyrosine,C=CC(O)CCCCC | N[C@@H](Cc1ccc(O)cc1)C(=O)O,Pleasantness,,,N[C@@H](Cc1ccc(O)cc1)C(=O)O | L-Tyrosine,40.795918367,45.227272727
+PLE-0152,Octyl isovalerate | Thiazole,CCCCCCCCOC(=O)CC(C)C | c1cscn1,Pleasantness,,,c1cscn1 | Thiazole,40.821428571,45.103448276
+PLE-0153,2-Methoxyphenyl benzeneacetate | 5-Methyl-2-hepten-4-one,COc1ccccc1OC(=O)Cc1ccccc1 | CC=CC(=O)C(C)CC,Pleasantness,,,CC=CC(=O)C(C)CC | 5-Methyl-2-hepten-4-one,40.854166667,45.020408163
+PLE-0154,2-Hexanol | Caprolactam,CCCCC(C)O | O=C1CCCCCN1,Pleasantness,,,O=C1CCCCCN1 | Caprolactam,41.083333333,45.0
+PLE-0155,(+-)-Fenchone | Cyclohexanone,CC12CCC(C1)C(C)(C)C2=O | O=C1CCCCC1,Pleasantness,,,CC12CCC(C1)C(C)(C)C2=O | (+-)-Fenchone,44.782608696,41.479166667
+PLE-0156,delta-TETRADECALACTONE | 2-Mercapto-3-butanol,CCCCCCCCCC1CCCC(=O)O1 | CC(O)C(C)S,Pleasantness,,,CCCCCCCCCC1CCCC(=O)O1 | delta-TETRADECALACTONE,44.701492537,41.5
+PLE-0157,1-Undecanol | 3-Octyl acetate,CCCCCCCCCCCO | CCCCCC(CC)OC(C)=O,Pleasantness,,,CCCCCC(CC)OC(C)=O | 3-Octyl acetate,41.595744681,44.591836735
+PLE-0158,"3-Hexenyl benzoate, (3Z)- | Pyrrolidine",CC/C=C\CCOC(=O)c1ccccc1 | C1CCNC1,Pleasantness,,,C1CCNC1 | Pyrrolidine,41.638888889,44.545454545
+PLE-0159,Hexyl hexanoate | Isopropanol,CCCCCCOC(=O)CCCCC | CC(C)O,Pleasantness,,,CCCCCCOC(=O)CCCCC | Hexyl hexanoate,44.404255319,41.764705882
+PLE-0160,1-Butanol | Amylcinnamaldehyde,CCCCO | CCCCCC(C=O)=Cc1ccccc1,Pleasantness,,,CCCCCC(C=O)=Cc1ccccc1 | Amylcinnamaldehyde,41.8,44.106382979
+PLE-0161,Ethyl Acetate | Allyl tiglate,CCOC(C)=O | C=CCOC(=O)/C(C)=C/C,Pleasantness,,,CCOC(C)=O | Ethyl Acetate,43.705882353,41.816326531
+PLE-0162,Propyl sulfide | Methyl Ethyl Ketone,CCCSCCC | CCC(C)=O,Pleasantness,,,CCCSCCC | Propyl sulfide,43.59375,41.864864865
+PLE-0163,2-Isobutylthiazole | Ethyl ketone,CC(C)Cc1nccs1 | CCC(=O)CC,Pleasantness,,,CCC(=O)CC | Ethyl ketone,41.955555556,43.552631579
+PLE-0164,Acetyl Tributyl Citrate | Phenoxyethyl isobutyrate,CCCCOC(=O)CC(CC(=O)OCCCC)(OC(C)=O)C(=O)OCCCC | CC(C)C(=O)OCCOc1ccccc1,Pleasantness,,,CC(C)C(=O)OCCOc1ccccc1 | Phenoxyethyl isobutyrate,42.066666667,43.5
+PLE-0165,Isopropyl Acetate | Acetal,CC(=O)OC(C)C | CCOC(C)OCC,Pleasantness,,,CC(=O)OC(C)C | Isopropyl Acetate,43.440677966,42.135135135
+PLE-0166,Pyrazine | 2-Ethylhexyl Acetate,c1cnccn1 | CCCCC(CC)COC(C)=O,Pleasantness,,,c1cnccn1 | Pyrazine,43.24,42.279069767
+PLE-0167,Pentanal | Methyl 3-methylthiopropionate,CCCCC=O | CCCC(=S)OC,Pleasantness,,,CCCC(=S)OC | Methyl 3-methylthiopropionate,42.3125,43.178571429
+PLE-0168,"2,4-Dimethyl-3-cyclohexene carboxaldehyde | Propyl Acetate",CC1=CC(C)C(C=O)CC1 | CCCOC(C)=O,Pleasantness,,,"CC1=CC(C)C(C=O)CC1 | 2,4-Dimethyl-3-cyclohexene carboxaldehyde",43.0,42.58974359
+PLE-0169,Thymyl methyl ether | Dl-Phenylalanine,COc1cc(C)ccc1C(C)C | NC(Cc1ccccc1)C(=O)O,Pleasantness,,,COc1cc(C)ccc1C(C)C | Thymyl methyl ether,42.790697674,42.630434783
+PLE-0170,Vanillin | S-methyl butanethioate,COc1cc(C=O)ccc1O | CCCC(=O)SC,Pleasantness,,,COc1cc(C=O)ccc1O | Vanillin,85.553191489,4.2916666667
+PLE-0171,Isovaleric Acid | Ethyl hexanoate,CC(C)CC(=O)O | CCCCCC(=O)OCC,Pleasantness,,,CCCCCC(=O)OCC | Ethyl hexanoate,13.604166667,79.1875
+PLE-0172,"Carvone, (-)- | Piperidine",C=C(C)[C@@H]1CC=C(C)C(=O)C1 | C1CCNCC1,Pleasantness,,,"C=C(C)[C@@H]1CC=C(C)C(=O)C1 | Carvone, (-)-",78.408163265,13.808510638
+PLE-0173,Ethyl 2-methylpentanoate | Isoamyl mercaptan,CCCC(C)C(=O)OCC | CC(C)CCS,Pleasantness,,,CCCC(C)C(=O)OCC | Ethyl 2-methylpentanoate,74.791666667,14.12244898
+PLE-0174,4-Pentenoic acid | Vanillin acetate,C=CCCC(=O)O | CC(=O)O.COc1cc(C=O)ccc1O,Pleasantness,,,CC(=O)O.COc1cc(C=O)ccc1O | Vanillin acetate,14.142857143,73.760869565
+PLE-0175,Benzyl Isothiocyanate | Linalool,S=C=NCc1ccccc1 | C=CC(C)(O)CCC=C(C)C,Pleasantness,,,C=CC(C)(O)CCC=C(C)C | Linalool,14.326530612,73.066666667
