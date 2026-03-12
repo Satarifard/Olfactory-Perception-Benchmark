@@ -1,5 +1,8 @@
 # Olfactory Perception (OP) Benchmark
 
+![Olfactory Perception Benchmark cover](Cover.png)
+
+
 A comprehensive benchmark for evaluating whether large language models can reason about smell. The benchmark contains 1,010 questions across eight task categories, each presented in two prompt formats (SMILES and compound names), enabling direct comparison of molecular representations.
 
 **Paper:** *Benchmark for Assessing Olfactory Perception of Large Language Models*
