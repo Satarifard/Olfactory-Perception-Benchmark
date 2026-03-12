@@ -15,8 +15,8 @@ A comprehensive benchmark for evaluating whether large language models can reaso
 |---|---|---|---|
 | Odor Classification (OC) | 175 | Simple | Binary: Odorous / Odorless |
 | Primary Odor Descriptor (POD) | 175 | Simple | 4-way multiple choice |
-| Odor Intensity (OI) | 175 | Simple | Pairwise comparison + rating |
-| Odor Pleasantness (OP) | 175 | Simple | Pairwise comparison + rating |
+| Odor Intensity (OIn) | 175 | Simple | Pairwise comparison + rating |
+| Odor Pleasantness (OPl) | 175 | Simple | Pairwise comparison + rating |
 | Rate-All-That-Apply (RATA) | 100 | Intermediate | Multi-label from 138 descriptors |
 | Odor Similarity of Mixtures (OS) | 100 | Intermediate | 4-point scale + distance |
 | Olfactory Receptor Activation (ORA) | 80 | Hard | Multi-label receptor selection |
@@ -110,7 +110,7 @@ Notebooks include rate limiting, retry logic, and token logging. Results are sav
 | `compound.name_1` / `compound.name_2` | Compound names (one or two per question) |
 | `SMILES_1` / `SMILES_2` | Isomeric SMILES strings |
 | `OPTIONS` | Answer choices (semicolon-separated) |
-| `question_category` | Task category (OC, POD, OI, OP, RATA, OS, ORA, SIT) |
+| `question_category` | Task category (OC, POD, OIn, OPl, RATA, OS, ORA, SIT) |
 | `prompt.1` | SMILES-based prompt |
 | `prompt.2` | Compound name-based prompt |
 | `answer` | Ground-truth answer |
@@ -118,7 +118,7 @@ Notebooks include rate limiting, retry logic, and token logging. Results are sav
 
 ## Evaluation Metrics
 
-- **Single-answer tasks** (OC, POD, OI, OP, OS, SIT): any-overlap accuracy
+- **Single-answer tasks** (OC, POD, OIn, OPl, OS, SIT): any-overlap accuracy
 - **Multi-answer tasks** (RATA, ORA): multilabel F1 score
 - **Continuous alignment** (intensity, pleasantness, similarity): Pearson correlation with human psychophysical measurements
 - **Overall accuracy**: unweighted mean across all task categories
