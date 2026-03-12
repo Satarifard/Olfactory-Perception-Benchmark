@@ -49,11 +49,11 @@ Ground-truth answers are derived from established olfactory science datasets and
 │   ├── Analysis.ipynb                    # Evaluation and figure generation
 │   └── Figure_*.pdf                      # Paper figures
 └── Submissions/
-    ├── claude.ipynb                       # Anthropic Claude (adaptive thinking)
-    ├── deepseek.ipynb                     # DeepSeek R1 (batch reasoning)
-    ├── gemini.ipynb                       # Google Gemini (thinking mode)
-    ├── openai.ipynb                       # OpenAI GPT-5 (Responses API)
-    ├── grok.ipynb                         # xAI Grok (fast reasoning)
+    ├── claude.ipynb                       # Anthropic Claude
+    ├── deepseek.ipynb                     # DeepSeek R1 
+    ├── gemini.ipynb                       # Google Gemini 
+    ├── openai.ipynb                       # OpenAI 
+    ├── grok.ipynb                         # xAI Grok 
     └── llama.ipynb                        # Meta Llama via Groq
 ```
 
