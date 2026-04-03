@@ -141,4 +141,4 @@ cite the paper
 
 ## Citation
 
-Eftychia Makri, Nikolaos Nakis, Laura Sisson, Gigi Minsky, Leandros Tassiulas, Vahid Satarifard, Nicholas A. Christakis [*Benchmark for Assessing Olfactory Perception of Large Language Models.* arxiv (2026)]([https://www.biorxiv.org/content/10.64898/2025.12.13.694160v1](https://arxiv.org/abs/2604.00002))
+Eftychia Makri, Nikolaos Nakis, Laura Sisson, Gigi Minsky, Leandros Tassiulas, Vahid Satarifard, Nicholas A. Christakis [*Benchmark for Assessing Olfactory Perception of Large Language Models.* arxiv (2026)](https://arxiv.org/abs/2604.00002)
