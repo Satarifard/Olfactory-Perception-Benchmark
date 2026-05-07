@@ -47,7 +47,8 @@ Ground-truth answers are derived from established olfactory science datasets and
 │   └── translations_results_RATA/        # Model results on multilingual RATA (7 models)
 ├── Analysis/
 │   ├── Analysis.ipynb                    # Evaluation and figure generation
-│   └── Figure_*.pdf                      # Paper figures
+│   ├── Figure_*.pdf                      # Paper figures
+│   └── statistical_analysis/             # Reproducible paired-test pipeline (see folder README)
 └── Submissions/
     ├── claude.ipynb                       # Anthropic Claude
     ├── deepseek.ipynb                     # DeepSeek R1 
@@ -98,6 +99,28 @@ The `Submissions/` folder contains Jupyter notebooks for reproducing model evalu
 | `llama.ipynb` | Groq | `openai` | `YOUR_GROQ_API_KEY` |
 
 Notebooks include rate limiting, retry logic, and token logging. Results are saved incrementally to CSV so runs can be resumed.
+
+## Statistical Analysis
+
+The `Analysis/statistical_analysis/` folder contains a reproducible Python pipeline for the paired statistical tests reported in the paper:
+
+- **SMILES vs.\ compound-name** paired tests per model and per task (McNemar's exact test on binary tasks; Wilcoxon signed-rank on multilabel F1)
+- **Per-task accuracy** with 95% bootstrap confidence intervals and significance vs.\ the leader set
+- **Within-family reasoning-budget** paired tests (e.g., DeepSeek 8K vs 16K vs 32K)
+- **Pairwise model-vs-model** significance matrices per task
+- **Steiger's Z** on dependent correlations between continuous-rating predictions and human ratings
+- **Per-language MMLU vs.\ RATA** correlation across models with cross-model residual analysis
+
+All Holm--Bonferroni corrected within their respective comparison families. Each script writes CSV summaries and LaTeX `.tex` snippets into a sibling `stats_outputs/` directory.
+
+```bash
+cd Analysis/statistical_analysis
+python stats_smiles_vs_name.py                 # default: include all CSVs in Results/benchmark_results/
+python stats_smiles_vs_name.py --exclude OLMo_2_32B
+python run_all_stats.py                        # run every script in sequence
+```
+
+See [`Analysis/statistical_analysis/README.md`](Analysis/statistical_analysis/README.md) for the full module list and detailed usage.
 
 ## Benchmark CSV Format
 

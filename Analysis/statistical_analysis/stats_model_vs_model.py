@@ -1,0 +1,188 @@
+"""
+Pairwise model-vs-model significance, per task category.
+
+For each of the 8 task categories we take the top-K (default 6) models on
+that category (compound-name prompt) and run pairwise paired tests on the
+SAME set of questions. Choice of test:
+  * Binary categories (OC, OPD, OIn, OPl, OS, SIT) -> McNemar's exact test
+  * Multilabel       (RATA, ORA)                  -> Wilcoxon signed-rank on F1
+
+For SIT (n=30) we additionally report a sign-flip permutation p-value because
+asymptotic McNemar is unreliable below n~30.
+
+We Holm–Bonferroni correct across the K(K-1)/2 pairs WITHIN each task. For
+each task we also output a triangular star matrix and an annotated Table-3-style
+ranking with significance vs. the top model.
+"""
+from __future__ import annotations
+
+import itertools
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from stats_core import (
+    CATEGORY_DISPLAY,
+    CATEGORY_ORDER,
+    MULTIANSWER_CATS,
+    auto_paired_test,
+    holm_bonferroni,
+    load_all_scores,
+    stars,
+)
+
+OUT_DIR = Path(__file__).resolve().parent / "stats_outputs"
+OUT_DIR.mkdir(exist_ok=True)
+
+TOP_K = 6  # how many models per task to compare pairwise
+
+
+def main() -> None:
+    scores, meta = load_all_scores()
+    cats = meta["question_category"].astype(str).str.lower().values
+
+    all_pair_rows = []
+    star_matrices = {}
+    rank_tables = {}
+
+    for cat_lower, cat_display in CATEGORY_DISPLAY.items():
+        mask = cats == cat_lower
+        n_q = int(mask.sum())
+        # Per-model accuracy on this category, name prompt
+        cat_means = {
+            m: float(scores[m]["name"][mask].mean()) for m in scores
+        }
+        # Pick top-K
+        top_models = sorted(cat_means, key=cat_means.get, reverse=True)[:TOP_K]
+
+        # Pairwise tests
+        pairs = list(itertools.combinations(top_models, 2))
+        raw_p = []
+        records = []
+        for a, b in pairs:
+            sa = scores[a]["name"][mask]
+            sb = scores[b]["name"][mask]
+            r = auto_paired_test(sa, sb)
+            raw_p.append(r["p_value"])
+            records.append({
+                "category": cat_display,
+                "n": n_q,
+                "model_a": a,
+                "mean_a": cat_means[a],
+                "model_b": b,
+                "mean_b": cat_means[b],
+                "diff_pp": 100 * (cat_means[a] - cat_means[b]),
+                "ci_lo_pp": 100 * r["ci_lo"],
+                "ci_hi_pp": 100 * r["ci_hi"],
+                "test": r["test"],
+                "p_raw": r["p_value"],
+                "cohens_d": r["cohens_d"],
+                "n_discordant": r.get("n_discordant"),
+                "p_perm": r.get("p_perm"),  # populated for SIT (n<=30)
+            })
+        # Holm correction within this task
+        adj = holm_bonferroni(raw_p) if raw_p else []
+        for rec, padj in zip(records, adj):
+            rec["p_holm"] = padj
+        all_pair_rows.extend(records)
+
+        # Star matrix (top-K x top-K)
+        smat = pd.DataFrame("", index=top_models, columns=top_models)
+        for rec in records:
+            a, b = rec["model_a"], rec["model_b"]
+            mark = stars(rec["p_holm"])
+            # mark cell (a,b) and (b,a) for readability
+            smat.loc[a, b] = mark
+            smat.loc[b, a] = mark
+        for m in top_models:
+            smat.loc[m, m] = "—"
+        star_matrices[cat_display] = smat
+
+        # Ranking table with significance vs. top model
+        top_m = top_models[0]
+        rank_rec = []
+        for m in top_models:
+            if m == top_m:
+                rank_rec.append({
+                    "rank": 1, "model": m, "mean_pct": 100 * cat_means[m],
+                    "vs_top_p_holm": np.nan, "stars_vs_top": "(top)",
+                })
+                continue
+            # find pair record (top_m, m)
+            pair_p = next(
+                rec["p_holm"] for rec in records
+                if {rec["model_a"], rec["model_b"]} == {top_m, m}
+            )
+            rank_rec.append({
+                "rank": top_models.index(m) + 1,
+                "model": m,
+                "mean_pct": 100 * cat_means[m],
+                "vs_top_p_holm": pair_p,
+                "stars_vs_top": stars(pair_p) or "ns",
+            })
+        rank_tables[cat_display] = pd.DataFrame(rank_rec)
+
+    # ---- Save outputs ----
+    df_pairs = pd.DataFrame(all_pair_rows)
+    df_pairs.to_csv(OUT_DIR / "model_vs_model_pairs.csv", index=False)
+    print(f"[written] {OUT_DIR / 'model_vs_model_pairs.csv'}")
+
+    # One CSV per task with the star matrix
+    for cat in CATEGORY_ORDER:
+        if cat not in star_matrices:
+            continue
+        fp = OUT_DIR / f"sigmatrix_{cat}.csv"
+        star_matrices[cat].to_csv(fp)
+        print(f"[written] {fp}")
+
+    # Combined LaTeX: ranking table per task with stars vs top
+    tex_path = OUT_DIR / "model_vs_top_significance.tex"
+    with tex_path.open("w") as fh:
+        fh.write("% Auto-generated by stats_model_vs_model.py — do not edit by hand.\n")
+        fh.write("\\begin{table}[t]\n\\centering\\small\n")
+        fh.write("\\caption{Top-" + str(TOP_K) + " models per task with paired-test significance "
+                 "vs.\\ the best model on that task. Binary tasks use McNemar's exact test on "
+                 "per-question correct/incorrect; multilabel tasks (RATA, ORA) use the Wilcoxon "
+                 "signed-rank test on per-question F1. $p$-values are Holm--Bonferroni "
+                 "corrected within each task ("
+                 + str(TOP_K * (TOP_K - 1) // 2) + " pairs). "
+                 "\\textsuperscript{***}$p<0.001$, "
+                 "\\textsuperscript{**}$p<0.01$, "
+                 "\\textsuperscript{*}$p<0.05$, ns: not significant. "
+                 "Compound-name prompts.}\n")
+        fh.write("\\label{tab:topmodel_significance}\n")
+        for cat in CATEGORY_ORDER:
+            if cat not in rank_tables:
+                continue
+            fh.write("\\textbf{" + cat + "} \\\\\n")
+            fh.write("\\begin{tabular}{rlcc}\n\\toprule\n")
+            fh.write("Rank & Model & Acc.\\,(\\%) & vs.\\ top \\\\\n\\midrule\n")
+            for _, r in rank_tables[cat].iterrows():
+                if r["stars_vs_top"] == "(top)":
+                    annot = "(top)"
+                else:
+                    annot = (f"{r['vs_top_p_holm']:.1e}" if pd.notna(r['vs_top_p_holm'])
+                             else "—") + " " + r['stars_vs_top']
+                fh.write(f"{int(r['rank'])} & {r['model'].replace('_', ' ')} & "
+                         f"{r['mean_pct']:.1f} & {annot} \\\\\n")
+            fh.write("\\bottomrule\n\\end{tabular}\\\\[0.6em]\n")
+        fh.write("\\end{table}\n")
+    print(f"[written] {tex_path}")
+
+    # ---- Console summary ----
+    print("\nTop-model significance vs. category leader (Holm-corrected within task):")
+    for cat in CATEGORY_ORDER:
+        if cat not in rank_tables:
+            continue
+        print(f"\n[{cat}] n={int((cats == [k for k,v in CATEGORY_DISPLAY.items() if v==cat][0]).sum())}")
+        rt = rank_tables[cat].copy()
+        rt["mean_pct"] = rt["mean_pct"].map(lambda x: f"{x:.1f}")
+        rt["vs_top_p_holm"] = rt["vs_top_p_holm"].map(
+            lambda x: f"{x:.2e}" if pd.notna(x) else "(top)"
+        )
+        print(rt[["rank", "model", "mean_pct", "vs_top_p_holm", "stars_vs_top"]].to_string(index=False))
+
+
+if __name__ == "__main__":
+    main()

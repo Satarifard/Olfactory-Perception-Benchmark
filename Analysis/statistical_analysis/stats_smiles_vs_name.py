@@ -1,0 +1,185 @@
+"""
+SMILES vs. compound-name paired test, per model.
+
+Each of the 21+ models is evaluated on the same 1,010 questions under both
+prompt formats. The pairing lets us run McNemar (binary tasks) and Wilcoxon
+(per-question F1 on RATA/ORA) per model.
+
+Headline mean accuracy is reported as the **task-unweighted mean** (mean of
+the eight per-task means), matching paper Section 4.2 / Table 3 — NOT the
+question-weighted mean over the 1,010-vector.
+
+For binary tables we report **risk difference (RD) and McNemar odds ratio
+(OR)** as effect sizes; Cohen's d is kept only on the F1 / mixed analyses.
+
+A diagnostic on F1 nonzero-difference counts is included so that "ns after
+Holm correction" can be distinguished from "underpowered after correction."
+"""
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from stats_core import (
+    MULTIANSWER_CATS,
+    auto_paired_test,
+    bootstrap_ci_diff,
+    cohens_d_paired,
+    exclude_models,
+    holm_bonferroni,
+    load_all_scores,
+    mcnemar_exact,
+    mcnemar_odds_ratio_ci,
+    stars,
+    task_unweighted_mean,
+    wilcoxon_paired,
+)
+
+OUT_DIR = Path(__file__).resolve().parent / "stats_outputs"
+OUT_DIR.mkdir(exist_ok=True)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--exclude", nargs="*", default=[],
+        help="Model identifiers to drop from the analysis (matches CSV stems "
+             "in Results/benchmark_results/). Default: include all.",
+    )
+    args = parser.parse_args()
+
+    scores, meta = load_all_scores()
+    scores = exclude_models(scores, args.exclude)
+    cats = meta["question_category"].astype(str).str.lower().values
+    print(f"[loaded] {len(scores)} models: {sorted(scores.keys())}")
+    binary_mask = ~np.isin(cats, list(MULTIANSWER_CATS))
+    f1_mask = ~binary_mask
+
+    rows = []
+    for model, vecs in scores.items():
+        s_smiles = vecs["smiles"]
+        s_name = vecs["name"]
+
+        # --- task-unweighted means (Table 3 definition) ---
+        m_smiles_uw = 100 * task_unweighted_mean(s_smiles, cats)
+        m_name_uw = 100 * task_unweighted_mean(s_name, cats)
+
+        # --- question-weighted means (over the full 1,010 vector) ---
+        # Useful as a second column for transparency; will differ from Table 3.
+        m_smiles_qw = 100 * float(s_smiles.mean())
+        m_name_qw = 100 * float(s_name.mean())
+
+        # --- Binary slice (830 single-answer questions) — McNemar ---
+        a_bin = s_name[binary_mask].astype(int)
+        b_bin = s_smiles[binary_mask].astype(int)
+        p_bin, b01_bin, b10_bin, n_disc_bin = mcnemar_exact(a_bin, b_bin)
+        rd_bin, rd_lo, rd_hi = bootstrap_ci_diff(a_bin, b_bin)
+        or_pt, or_lo, or_hi = mcnemar_odds_ratio_ci(b01_bin, b10_bin)
+
+        # --- F1 slice (180 RATA + ORA) — Wilcoxon + diagnostic ---
+        a_f1 = s_name[f1_mask]
+        b_f1 = s_smiles[f1_mask]
+        diff_f1 = a_f1 - b_f1
+        n_nonzero_f1 = int(np.sum(diff_f1 != 0))
+        W_f1, p_f1 = wilcoxon_paired(a_f1, b_f1)
+        d_f1 = cohens_d_paired(a_f1, b_f1)
+        rd_f1, rd_f1_lo, rd_f1_hi = bootstrap_ci_diff(a_f1, b_f1)
+
+        rows.append({
+            "model": model,
+            # task-unweighted (Table-3 compatible)
+            "mean_smiles_uw_pct": m_smiles_uw,
+            "mean_name_uw_pct": m_name_uw,
+            "diff_uw_pp": m_name_uw - m_smiles_uw,
+            # question-weighted (over full 1,010)
+            "mean_smiles_qw_pct": m_smiles_qw,
+            "mean_name_qw_pct": m_name_qw,
+            "diff_qw_pp": m_name_qw - m_smiles_qw,
+            # Binary McNemar
+            "diff_binary_pp": 100 * rd_bin,
+            "ci_binary_lo": 100 * rd_lo,
+            "ci_binary_hi": 100 * rd_hi,
+            "p_binary_mcnemar": p_bin,
+            "b01_name_better": b01_bin,
+            "b10_smiles_better": b10_bin,
+            "n_discordant_binary": n_disc_bin,
+            "or_mcnemar": or_pt,
+            "or_lo": or_lo,
+            "or_hi": or_hi,
+            # F1 Wilcoxon (with diagnostic)
+            "diff_f1_pp": 100 * rd_f1,
+            "ci_f1_lo": 100 * rd_f1_lo,
+            "ci_f1_hi": 100 * rd_f1_hi,
+            "p_f1_wilcoxon": p_f1,
+            "n_nonzero_f1": n_nonzero_f1,
+            "n_total_f1": int(f1_mask.sum()),
+            "d_f1": d_f1,
+        })
+
+    df = pd.DataFrame(rows).sort_values("diff_uw_pp", ascending=False).reset_index(drop=True)
+
+    # Holm–Bonferroni across the (now ≥ 22) models for each test
+    df["p_binary_mcnemar_holm"] = holm_bonferroni(df["p_binary_mcnemar"].tolist())
+    df["p_f1_wilcoxon_holm"] = holm_bonferroni(df["p_f1_wilcoxon"].tolist())
+
+    out_csv = OUT_DIR / "smiles_vs_name_paired_tests.csv"
+    df.to_csv(out_csv, index=False)
+    print(f"[written] {out_csv}")
+
+    # ---- LaTeX table ----
+    tex_path = OUT_DIR / "smiles_vs_name_table.tex"
+    with tex_path.open("w") as fh:
+        fh.write("% Auto-generated by stats_smiles_vs_name.py — do not edit by hand.\n")
+        fh.write("\\begin{table}[t]\n\\centering\\small\n")
+        fh.write("\\caption{Paired test of compound-name vs.\\ isomeric-SMILES prompts, "
+                 "per model. \\textbf{Means use the task-unweighted definition} of "
+                 "Section~\\ref{sec:metrics} (mean of eight per-task scores) so they "
+                 "match Table~\\ref{tab:main_results}. Binary tests use McNemar's exact "
+                 "test on the 830 single-answer questions; F1 tests use the Wilcoxon "
+                 "signed-rank test on the 180 multilabel (RATA, ORA) per-question F1 "
+                 "scores. $\\Delta$ binary in pp; OR is the McNemar odds ratio "
+                 "$b_{01}/b_{10}$ (Name-wins/SMILES-wins) with 95\\% Clopper--Pearson CI. "
+                 "$p$-values are Holm--Bonferroni corrected across all models. "
+                 "\\textsuperscript{***}$p<0.001$, \\textsuperscript{**}$p<0.01$, "
+                 "\\textsuperscript{*}$p<0.05$.}\n")
+        fh.write("\\label{tab:smiles_vs_name_paired}\n")
+        fh.write("\\begin{tabular}{lcccccc}\n\\toprule\n")
+        fh.write("Model & SMILES (\\%) & Name (\\%) & $\\Delta$ binary & McNemar $p$ & OR & $\\Delta$ F1 \\\\\n")
+        fh.write("\\midrule\n")
+        for _, r in df.iterrows():
+            or_disp = (f"{r['or_mcnemar']:.2f} [{r['or_lo']:.2f}, {r['or_hi']:.2f}]"
+                       if np.isfinite(r['or_mcnemar']) else "—")
+            fh.write(
+                f"{r['model'].replace('_', ' ')} & "
+                f"{r['mean_smiles_uw_pct']:.1f} & "
+                f"{r['mean_name_uw_pct']:.1f} & "
+                f"{r['diff_binary_pp']:+.1f} [{r['ci_binary_lo']:+.1f}, {r['ci_binary_hi']:+.1f}] & "
+                f"{r['p_binary_mcnemar_holm']:.1e}{stars(r['p_binary_mcnemar_holm'])} & "
+                f"{or_disp} & "
+                f"{r['diff_f1_pp']:+.1f} [{r['ci_f1_lo']:+.1f}, {r['ci_f1_hi']:+.1f}] \\\\\n"
+            )
+        fh.write("\\bottomrule\n\\end{tabular}\n\\end{table}\n")
+    print(f"[written] {tex_path}")
+
+    # ---- Console summary ----
+    print("\nSMILES vs Name (Holm-corrected across models):")
+    show = df[[
+        "model", "mean_smiles_uw_pct", "mean_name_uw_pct",
+        "diff_binary_pp", "p_binary_mcnemar_holm", "or_mcnemar",
+        "n_nonzero_f1", "n_total_f1", "diff_f1_pp", "p_f1_wilcoxon_holm",
+    ]].copy()
+    show.columns = [
+        "model", "SMILES%", "Name%",
+        "Δbin_pp", "p_bin_holm", "OR",
+        "F1_nz", "F1_n", "Δf1_pp", "p_f1_holm",
+    ]
+    print(show.to_string(index=False, float_format=lambda x: f"{x:.3g}"))
+    print(f"\n[F1 diagnostic] median nonzero-diff F1 questions across models: "
+          f"{int(df['n_nonzero_f1'].median())}/{int(df['n_total_f1'].iloc[0])}")
+
+
+if __name__ == "__main__":
+    main()

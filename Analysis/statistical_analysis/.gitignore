@@ -1,0 +1,4 @@
+# Generated artefacts — re-run the scripts to regenerate
+stats_outputs/
+__pycache__/
+*.pyc
